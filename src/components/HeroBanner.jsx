@@ -1,9 +1,6 @@
 import React from 'react';
 import { Sparkles } from 'lucide-react';
 
-import React from 'react';
-import { Sparkles } from 'lucide-react';
-
 export default function HeroBanner() {
   return (
     <div className="hero bg-base-200 py-8 px-6 rounded-3xl my-6">
