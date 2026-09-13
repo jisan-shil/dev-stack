@@ -1,32 +1,32 @@
 import React from 'react';
-import { Plus, Check } from 'lucide-react';
 
-export default function TechCard({ tech, onAdd, isSelected }) {
+export default function TechCard({ tech, onToggleStack, isSelected }) {
   return (
-    <div className="card bg-base-100 shadow-sm hover:shadow-md transition-shadow border border-base-200">
-      <div className="card-body">
-        <div className="flex justify-between items-start">
-          <span className="badge badge-neutral text-xs">{tech.category}</span>
+    <div className="tech-card">
+      <div>
+        <div className="tech-card-top">
+          <div className="tech-icon-title">
+            <div className="tech-logo" style={{ backgroundColor: tech.color || '#374151' }}>
+              {tech.iconText}
+            </div>
+            <h3>{tech.name}</h3>
+          </div>
+          <span className={`badge ${tech.badgeClass}`}>{tech.badge}</span>
         </div>
-        <h2 className="card-title text-xl font-bold mt-2">{tech.name}</h2>
-        <p className="text-gray-500 text-sm">{tech.description}</p>
-        <div className="card-actions justify-end mt-4">
-          <button
-            onClick={() => onAdd(tech)}
-            disabled={isSelected}
-            className={`btn btn-sm ${isSelected ? 'btn-disabled' : 'btn-primary'}`}
-          >
-            {isSelected ? (
-              <>
-                <Check className="w-4 h-4" /> Added
-              </>
-            ) : (
-              <>
-                <Plus className="w-4 h-4" /> Add to Stack
-              </>
-            )}
-          </button>
+        <p>{tech.description}</p>
+      </div>
+      <div className="tech-card-footer">
+        <div className="tech-meta">
+          <span className="category-tag">{tech.category}</span>
+          <span>{tech.level}</span>
+          <span><span className="rating-star">★</span> {tech.rating}</span>
         </div>
+        <button 
+          className={`add-stack-btn ${isSelected ? 'added' : ''}`}
+          onClick={() => onToggleStack(tech)}
+        >
+          {isSelected ? '✓ Added to Stack' : '+ Add to Stack'}
+        </button>
       </div>
     </div>
   );
