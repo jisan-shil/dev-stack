@@ -1,13 +1,12 @@
 import React from 'react';
-import { Layers, Bookmark } from 'lucide-react';
+import { Bookmark } from 'lucide-react';
 
 export default function Navbar({ stackCount }) {
   return (
     <div className="navbar bg-base-100 shadow-md sticky top-0 z-50 px-4 md:px-8">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl font-bold flex items-center gap-2">
-          <Layers className="w-6 h-6 text-indigo-600" />
-          <span>DevStack</span>
+        <a className="btn btn-ghost p-0 flex items-center">
+          <img src="/logo-text.png" alt="DevStack Logo" className="h-8 w-auto" />
         </a>
       </div>
       <div className="flex-none gap-4">
@@ -15,7 +14,7 @@ export default function Navbar({ stackCount }) {
           <Bookmark className="w-4 h-4 text-indigo-600" />
           <span className="font-semibold text-sm">Stack: {stackCount}</span>
         </div>
-     </div>
+      </div>
     </div>
   );
 }
