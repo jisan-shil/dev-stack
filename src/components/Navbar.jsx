@@ -15,7 +15,7 @@ export default function Navbar({ stackCount }) {
           <Bookmark className="w-4 h-4 text-indigo-600" />
           <span className="font-semibold text-sm">Stack: {stackCount}</span>
         </div>
-      </div>
+     </div>
     </div>
   );
 }
